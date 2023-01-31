@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:learn_flutter_bloc/modules/bloc/theme_bloc.dart';
 import 'package:learn_flutter_bloc/modules/details/details_page.dart';
 import 'package:learn_flutter_bloc/modules/home/components/action_button.dart';
 import 'package:learn_flutter_bloc/modules/home/controller/counter.dart';
@@ -11,16 +12,26 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Counter counter = BlocProvider.of<Counter>(context);
+    ThemeBloc themeBloc = context.read<ThemeBloc>();
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Belajar Bloc")),
+      appBar: AppBar(
+        title: const Text("Belajar Bloc"),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              themeBloc.changeTheme();
+            },
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(Icons.replay_outlined),
+            ),
+          )
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => BlocProvider.value(
-                    value: counter,
-                    child: const DetailsPage(),
-                  )));
+          Navigator.of(context).pushNamed(DetailsPage.routeName);
         },
         child: const Icon(Icons.arrow_forward),
       ),
