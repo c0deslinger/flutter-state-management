@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn_flutter_bloc/modules/app.dart';
 import 'package:learn_flutter_bloc/modules/bloc/theme_bloc.dart';
+import 'package:learn_flutter_bloc/modules/form/bloc/form_bloc.dart';
+import 'package:learn_flutter_bloc/modules/form/form_page.dart';
 import 'package:learn_flutter_bloc/modules/home/controller/counter.dart';
 import 'package:learn_flutter_bloc/modules/home/routes/router.dart';
 
@@ -20,7 +22,8 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => Counter(init: 0)),
-          BlocProvider(create: (context) => themeBloc)
+          BlocProvider(create: (context) => themeBloc),
+          BlocProvider(create: (context) => FormBloc())
         ],
         child: BlocBuilder<ThemeBloc, bool>(
           builder: (context, isDarkTheme) {
