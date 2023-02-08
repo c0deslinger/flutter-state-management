@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learn_flutter_bloc/modules/bloc/theme_bloc.dart';
-import 'package:learn_flutter_bloc/modules/details/details_page.dart';
-import 'package:learn_flutter_bloc/modules/form/form_page.dart';
-import 'package:learn_flutter_bloc/modules/home/components/action_button.dart';
-import 'package:learn_flutter_bloc/modules/home/controller/counter.dart';
+import 'package:learn_flutter_bloc/app/global/bloc/theme_bloc.dart';
+import 'package:learn_flutter_bloc/app/modules/details/details_page.dart';
+import 'package:learn_flutter_bloc/app/modules/form/form_page.dart';
+import 'package:learn_flutter_bloc/app/modules/home/components/action_button.dart';
+import 'package:learn_flutter_bloc/app/modules/home/controller/counter.dart';
 
 class HomePage extends StatelessWidget {
   static const routeName = "/home";

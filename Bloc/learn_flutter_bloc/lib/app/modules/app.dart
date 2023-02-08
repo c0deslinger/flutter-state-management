@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_bloc/modules/home/routes/router.dart';
+import 'package:learn_flutter_bloc/app/router.dart';
 
 class MyApp extends StatelessWidget {
   final bool isDarkTheme;
   final MyRouter router;
 
-  MyApp({super.key, required this.isDarkTheme, required this.router});
+  const MyApp({super.key, required this.isDarkTheme, required this.router});
 
   @override
   Widget build(BuildContext context) {

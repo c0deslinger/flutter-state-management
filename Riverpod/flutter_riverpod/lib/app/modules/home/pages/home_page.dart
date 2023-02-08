@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod_example/app/global/widget/body_builder.dart';
+import 'package:flutter_riverpod_example/app/global/widget/dark_mode_switch.dart';
 import 'package:flutter_riverpod_example/app/modules/details/pages/details_page.dart';
 import 'package:flutter_riverpod_example/app/modules/home/notifier/home.notifier.dart';
 import 'package:flutter_riverpod_example/providers.dart';
@@ -34,15 +35,17 @@ class HomePageState extends ConsumerState<HomePage> {
                 "wellcome".tr(),
                 style: AppTextStyle.caption,
               ),
+              const DarkModeSwitch(),
               Row(
                 children: [
                   Text(
                     "language_label".tr(),
-                    style: AppTextStyle.caption,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Expanded(
                     child: RadioListTile(
-                      title: const Text("English"),
+                      title: Text("English",
+                          style: Theme.of(context).textTheme.bodyMedium),
                       value: "en",
                       groupValue: currentLanguage,
                       onChanged: (value) {
@@ -52,7 +55,8 @@ class HomePageState extends ConsumerState<HomePage> {
                   ),
                   Expanded(
                     child: RadioListTile(
-                      title: const Text("Indo"),
+                      title: Text("Indo",
+                          style: Theme.of(context).textTheme.bodyMedium),
                       value: "id",
                       groupValue: currentLanguage,
                       onChanged: (value) {
@@ -64,7 +68,8 @@ class HomePageState extends ConsumerState<HomePage> {
               ),
               Text(
                 "news_label".tr(),
-                style: AppTextStyle.caption,
+                style: AppTextStyle.caption
+                    .merge(Theme.of(context).textTheme.bodyMedium),
               ),
               Expanded(
                 child: BodyBuilder(

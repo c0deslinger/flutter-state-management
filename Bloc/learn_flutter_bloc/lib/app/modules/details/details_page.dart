@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learn_flutter_bloc/modules/home/controller/counter.dart';
+import 'package:learn_flutter_bloc/app/modules/home/controller/counter.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learn_flutter_bloc/modules/form/bloc/form_bloc.dart';
+import 'package:learn_flutter_bloc/app/modules/form/bloc/form_bloc.dart';
 
 class FormPage extends StatelessWidget {
   const FormPage({super.key});

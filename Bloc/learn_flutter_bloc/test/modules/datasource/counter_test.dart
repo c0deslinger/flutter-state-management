@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:learn_flutter_bloc/modules/home/controller/counter.dart';
+import 'package:learn_flutter_bloc/app/modules/home/controller/counter.dart';
 
 void main() {
   test('increment() should add 1 to the state', () {
