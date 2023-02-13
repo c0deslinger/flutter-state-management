@@ -22,7 +22,6 @@ class LanguageSetting extends StatelessWidget {
             value: "en",
             groupValue: currentLanguage,
             onChanged: (value) {
-              // Get.updateLocale(const Locale("en"));
               globalController.changeLanguage("en");
             },
           ),

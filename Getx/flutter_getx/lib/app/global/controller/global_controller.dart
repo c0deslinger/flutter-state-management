@@ -15,7 +15,7 @@ class GlobalController extends GetxController {
     _getLastMode();
   }
 
-  _getLastMode() async {
+  Future<void> _getLastMode() async {
     theme =
         (box.read("isDarkMode") ?? false) ? ThemeMode.dark : ThemeMode.light;
     String langCode = box.read("locale") ?? "en";
@@ -23,18 +23,18 @@ class GlobalController extends GetxController {
     update();
   }
 
-  _saveThemeMode(bool isDarkMode) async {
+  Future<void> _saveThemeMode(bool isDarkMode) async {
     box.write("isDarkMode", isDarkMode);
     theme = isDarkMode ? ThemeMode.dark : ThemeMode.light;
     update();
   }
 
-  changeLanguage(String languageCode) async {
+  Future<void> changeLanguage(String languageCode) async {
     box.write("locale", languageCode);
     Get.updateLocale(Locale(languageCode));
   }
 
-  switchTheme() {
+  void switchTheme() {
     bool isDarkMode = Get.isDarkMode;
     Get.changeTheme(isDarkMode ? AppTheme.lightTheme : AppTheme.darkTheme);
     _saveThemeMode(!isDarkMode);

@@ -1,4 +1,4 @@
 {
     "baseUrl": "https://prod/",
-    "apikey": "1234"
+    "suffixUrl" : "&apiKey=e5982f5737d047a98d96b63752fe3020"
   }

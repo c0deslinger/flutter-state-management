@@ -19,7 +19,7 @@ abstract class ConfigReader {
     return _config!['baseUrl'] as String;
   }
 
-  static String getApikey() {
-    return _config!['apikey'] as String;
+  static String getSuffixUrl() {
+    return _config!['suffixUrl'] as String;
   }
 }

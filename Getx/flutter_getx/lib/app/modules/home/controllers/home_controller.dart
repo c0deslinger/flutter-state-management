@@ -27,7 +27,7 @@ class HomeController extends GetxController implements IHomeController {
   Future<void> getListNews() async {
     listNewsStatusState = StatusState.loading;
     update(["listNews"]);
-    final either = await homeApiDatasource.getListNewsEither();
+    final either = await homeApiDatasource.getListNews();
     listNews = either.fold((l) {
       errorListNews = l.message;
       listNewsStatusState = StatusState.failed;
