@@ -13,7 +13,7 @@ class HomeController extends GetxController implements IHomeController {
 
   HomeController(this.homeApiDatasource);
 
-  StatusState listNewsStatusState = StatusState.initial;
+  RequestStatusState listNewsStatusState = RequestStatusState.initial;
   String? errorListNews;
   ListNews? listNews;
 
@@ -25,16 +25,16 @@ class HomeController extends GetxController implements IHomeController {
 
   @override
   Future<void> getListNews() async {
-    listNewsStatusState = StatusState.loading;
+    listNewsStatusState = RequestStatusState.loading;
     update(["listNews"]);
     final either = await homeApiDatasource.getListNews();
     listNews = either.fold((l) {
       errorListNews = l.message;
-      listNewsStatusState = StatusState.failed;
+      listNewsStatusState = RequestStatusState.failed;
       update(["listNews"]);
       return null;
     }, (r) {
-      listNewsStatusState = StatusState.loaded;
+      listNewsStatusState = RequestStatusState.loaded;
       update(["listNews"]);
       return r;
     });

@@ -5,7 +5,7 @@ import 'package:flutter_getx_example/app/global/widget/loading.dart';
 import '../../../connection/states.dart';
 
 class BodyBuilder extends StatelessWidget {
-  final StatusState requestStatus;
+  final RequestStatusState requestStatus;
   final Widget child;
   final Widget loadingWidget;
   final Function? onRetry;
@@ -23,11 +23,11 @@ class BodyBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     switch (requestStatus) {
-      case StatusState.initial:
+      case RequestStatusState.initial:
         return Container();
-      case StatusState.loading:
+      case RequestStatusState.loading:
         return loadingWidget;
-      case StatusState.failed:
+      case RequestStatusState.failed:
         return ErrorRetry(
             onPressed: () {
               if (onRetry != null) {
@@ -35,7 +35,7 @@ class BodyBuilder extends StatelessWidget {
               }
             },
             text: errorMessage);
-      case StatusState.loaded:
+      case RequestStatusState.loaded:
         return child;
     }
   }

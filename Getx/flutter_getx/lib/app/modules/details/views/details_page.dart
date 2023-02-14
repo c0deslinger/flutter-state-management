@@ -13,9 +13,7 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Articles articles = Get.arguments['article'];
 
-    // final cartTotalController = Get.put(CartController(), tag: "cart-total");
     final cartTotalController = Get.find<CartController>(tag: "cart-total");
-    // final cartItemQtyController = Get.create(() => CartController());
 
     return Scaffold(
       appBar: AppBar(title: const Text("Details Page")),

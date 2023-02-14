@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_getx_example/app/modules/details/controllers/cart_controller.dart';
 import 'package:get/get.dart';
 
@@ -18,6 +16,7 @@ class ItemCartWidget extends StatelessWidget {
         child: Row(children: [
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text("Nama barang"),
                 SizedBox(height: 10),
@@ -37,6 +36,17 @@ class ItemCartWidget extends StatelessWidget {
                 children: [
                   IconButton(
                       onPressed: () {
+                        cartItemQtyController.itemCount.value--;
+                        cartTotalController.total.value--;
+                      },
+                      icon: Icon(
+                        Icons.remove,
+                        color: Theme.of(context).dividerColor,
+                      )),
+                  Obx(() =>
+                      Text(cartItemQtyController.itemCount.value.toString())),
+                  IconButton(
+                      onPressed: () {
                         cartItemQtyController.itemCount.value++;
                         cartTotalController.total.value++;
                       },
@@ -44,17 +54,6 @@ class ItemCartWidget extends StatelessWidget {
                         Icons.add,
                         color: Theme.of(context).dividerColor,
                       )),
-                  Obx(() =>
-                      Text(cartItemQtyController.itemCount.value.toString())),
-                  IconButton(
-                      onPressed: () {
-                        cartItemQtyController.itemCount.value--;
-                        cartTotalController.total.value--;
-                      },
-                      icon: Icon(
-                        Icons.remove,
-                        color: Theme.of(context).dividerColor,
-                      ))
                 ]),
           )
         ]),

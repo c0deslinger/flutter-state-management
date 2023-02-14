@@ -4,12 +4,13 @@ Skeleton Flutter with Getx
 
 ## Stack
   - getx
-  - dio
-  - easy_localization
+  - get_storage
 
 
 ## Flutter Flavor
 https://www.youtube.com/watch?v=4Y7WaeU3P60&ab_channel=FlutterExplained
+https://dwirandyh.medium.com/create-build-flavor-in-flutter-application-ios-android-fb35a81a9fac
+
 
 ## Change package name
 `flutter pub run change_app_package_name:main com.example.getx`

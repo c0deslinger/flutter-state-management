@@ -3,6 +3,7 @@ import 'package:flutter_getx_example/app/global/controller/global_controller.dar
 import 'package:flutter_getx_example/app/global/widget/body_builder.dart';
 import 'package:flutter_getx_example/app/global/widget/language_switch.dart';
 import 'package:flutter_getx_example/app/global/widget/loading.dart';
+import 'package:flutter_getx_example/app/modules/auth/view/login_page.dart';
 import 'package:flutter_getx_example/app/modules/details/controllers/cart_controller.dart';
 import 'package:flutter_getx_example/app/modules/details/views/details_page.dart';
 import 'package:flutter_getx_example/app/modules/home/controllers/home_controller.dart';
@@ -20,10 +21,21 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeController homeController = Get.find();
+    GlobalController globalController = Get.find();
     CartController cartTotalController = Get.find(tag: "cart-total");
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Home Getx")),
+      appBar: AppBar(
+        title: const Text("Home Getx"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                globalController.remoteToken();
+                Get.offAllNamed(LoginPage.routeName);
+              },
+              icon: const Icon(Icons.logout))
+        ],
+      ),
       body: Container(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -77,7 +89,7 @@ class HomePage extends StatelessWidget {
         homeController.getListNews();
       },
       child: ListView.builder(
-        itemCount: listNews.totalResults ?? 0,
+        itemCount: listNews.articles?.length ?? 0,
         itemBuilder: (context, index) {
           var article = listNews.articles![index];
           return InkWell(

@@ -1,4 +1,5 @@
 import 'package:either_option/either_option.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_getx_example/app/global/model/error_response.dart';
 import 'package:flutter_getx_example/connection/http_getconnect.dart';
 import 'package:intl/intl.dart';
@@ -24,6 +25,7 @@ class HomeApiDatasource extends IHomeApiDatasource {
           .format(DateTime.now().subtract(const Duration(days: 7)));
       final response = await httpRequest.getData(
           path: "everything?q=google&from=$requestDate&sortBy=publishedAt");
+      debugPrint("res " + response.body.toString());
       if (successCode.contains(response.statusCode)) {
         return Right(ListNews.fromJson(response.body));
       } else {
@@ -33,6 +35,7 @@ class HomeApiDatasource extends IHomeApiDatasource {
     } on Exception catch (e) {
       return Left(ServerFailure(msg: e.toString()));
     } catch (e) {
+      debugPrint("e: " + e.toString());
       return Left(UnhandledFailure());
     }
   }

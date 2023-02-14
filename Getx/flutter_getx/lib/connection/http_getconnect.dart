@@ -17,44 +17,44 @@ class HttpGetConnect extends GetConnect {
 
   void setHttpHeader(String key, dynamic val) {
     _header[key] = val;
-    httpClient.addRequestModifier((Request request) {
-      request.headers.addAll(_header);
-      return request;
-    });
   }
 
   void setAuth(String token) {
-    httpClient.addAuthenticator((Request request) async {
-      var authHeaders = {'Authorization': "Bearer $token"};
-      request.headers.addAll(authHeaders);
-      return request;
-    });
+    _header['Authorization'] = "Bearer $token";
+  }
+
+  void remoteAuth() {
+    _header.remove("Authorization");
   }
 
   Future<Response<dynamic>> getData({String path = ""}) async {
     String requestUrl = path + _suffixUrl;
-    return await get(requestUrl, headers: _header);
+    httpClient.addRequestModifier((Request request) {
+      request.headers.addAll(_header);
+      return request;
+    });
+    return await get(requestUrl);
   }
 
   Future<Response<dynamic>> postData({dynamic body, String path = ""}) async {
     String requestUrl = path + _suffixUrl;
-    return await post(requestUrl, body, headers: _header);
+    return await post(requestUrl, body);
   }
 
   Future<Response<dynamic>> putData({dynamic body, String path = ""}) async {
     String requestUrl = path + _suffixUrl;
-    return await put(requestUrl, body, headers: _header);
+    return await put(requestUrl, body);
   }
 
   Future<Response<dynamic>> deleteData({String path = ""}) async {
     String requestUrl = path + _suffixUrl;
-    return await delete(requestUrl, headers: _header);
+    return await delete(requestUrl);
   }
 
   Future<Response<dynamic>> uploadData(
       {required FormData body, String path = ""}) async {
     String requestUrl = path + _suffixUrl;
-    return await post(requestUrl, body, headers: _header);
+    return await post(requestUrl, body);
   }
 
   static HttpGetConnect get instance {
