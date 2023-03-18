@@ -17,3 +17,7 @@ https://dwirandyh.medium.com/create-build-flavor-in-flutter-application-ios-andr
 
 Old Package Name: com.example.flutter_riverpod
 https://stackoverflow.com/questions/51534616/how-to-change-package-name-in-flutter
+
+
+## flutter flavor setup firebase
+https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b
