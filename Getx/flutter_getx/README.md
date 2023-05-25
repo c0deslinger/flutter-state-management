@@ -1,4 +1,4 @@
-# flutter_riverpod
+# flutter_getx
 
 Skeleton Flutter with Getx
 
@@ -15,7 +15,7 @@ https://dwirandyh.medium.com/create-build-flavor-in-flutter-application-ios-andr
 ## Change package name
 `flutter pub run change_app_package_name:main com.example.getx`
 
-Old Package Name: com.example.flutter_riverpod
+Old Package Name: com.example.flutter_getx
 https://stackoverflow.com/questions/51534616/how-to-change-package-name-in-flutter
 
 
